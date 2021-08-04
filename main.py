@@ -20,10 +20,14 @@ except ImportError:
 
 ## Retreive phrases from Duolingo API.
 
+# File to save authentication token in to avoid having to re-authenticate on
+# each new execution.
+token_file = "token.json"
+
 duo = duolingo.Duolingo(
     username=config.username,
     password=config.password,
-    session_file=config.token_file,
+    session_file=token_file,
 )
 
 language_abbr = duo.get_abbreviation_of(config.language)
@@ -43,10 +47,7 @@ phrases = sorted(phrases)
 # Print phrases to out stream in Pleco flashcard text file format:
 # https://android.pleco.com/manual/240/flash.html#textformat
 
-if isinstance(config.out_file, str):
-    out = open(config.out_file, "w")
-else:
-    out = config.out_file
+out = sys.stdout
 
 # Switch to the flashcard category, if any.
 if config.category is not None:
