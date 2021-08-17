@@ -34,3 +34,7 @@ pipenv run main.py > cards.txt
 
 You can then copy this file to your phone and import it into Pleco.
 See the Pleco documentation ([for Android](http://www.pleco.com/anmanual) and [for iOS](http://www.pleco.com/ipmanual)) for options you might want to change when importing.
+
+## License
+
+This project is licensed under the [MIT license](LICENSE).
